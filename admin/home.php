@@ -1,0 +1,1 @@
+<button style="padding: 10px 20px; background-color: #000;  border-radius: 4px;"><a style="text-decoration: none; color: #fff;" href="../index.php" >THOÁT GIAO DIỆN ADMIN</a></button>
