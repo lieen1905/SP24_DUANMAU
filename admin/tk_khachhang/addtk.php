@@ -52,6 +52,12 @@
         <a href="index.php?act=khachhang"><input style="padding: 10px; background-color: #000; color: #fff; border: none; border-radius: 4px;" class="mr20" type="button" value="DANH SÁCH"></a>
       </div>
 
+      <?php
+      if (isset($thongbao) && ($thongbao != '')) {
+        echo $thongbao;
+        header("location: index.php?act=khachhang");
+      }
+      ?>
     </form>
   </div>
 </div>

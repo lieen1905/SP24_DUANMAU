@@ -1,6 +1,6 @@
 <div class="category">
-    <h1>Danh sách danh mục</h1>
     <div class="category_table">
+        <h1>Danh sách danh mục</h1>
         <table border="1" style="border-collapse: collapse ;">
             <th class="th-danhmuc">
                 <p>Mã Loại</p>
@@ -10,16 +10,21 @@
             </th>
             <th class="th-danhmuc"></th>
             <?php
-            echo '
+            foreach ($listCategory as $category) {
+                extract($category);
+                $delCategory = 'index.php?act=delCategory&id=' . $id;
+                $update = 'index.php?act=update&id=' . $id;
+                echo '
                       <tr class="td-danhmuc">
-                      <td class="td-danhmuc"></td>
-                      <td class="td-danhmuc"></td>
+                      <td class="td-danhmuc">' . $id . '</td>
+                      <td class="td-danhmuc">' . $name . '</td>
                       <td class="td-danhmuc">
-                      <input style="padding: 5px 10px; background-color: green; color: #fff;" type="button" name="" value="Sửa"></a>
-                      <input style="padding: 5px 10px; background-color: red; color: #fff;" onclick="return confirm(\'Bạn có muốn xóa không\')" class="del_category" type="button" name="" value="Xóa"></a>
+                      <a href="' . $update . '"><input style="padding: 5px 10px; background-color: green; color: #fff;" type="button" name="" value="Sửa"></a>
+                      <a href="' . $delCategory . '"><input style="padding: 5px 10px; background-color: red; color: #fff;" onclick="return confirm(\'Bạn có muốn xóa không\')" class="del_category" type="button" name="" value="Xóa"></a>
                       </td>
                       </tr>
                         ';
+            }
             ?>
         </table>
         <button class="btn" style="margin-top: 20px;">

@@ -7,7 +7,12 @@
 
       <div class="form__category" style="margin-top: 20px; margin-bottom: 20px;">
         <select name="iddm" id="iddm">
-
+          <?php
+          foreach ($listdanhmuc as $dm) {
+            extract($dm);
+            echo '<option value="' . $id . '">' . $name . '</option>';
+          }
+          ?>
         </select>
       </div>
   </div>
@@ -50,6 +55,12 @@
   </div>
   </form>
 
+  <?php
+  if (isset($thongbao) && ($thongbao != '')) {
+    echo $thongbao;
+    header("location: index.php?act=listsp");
+  }
+  ?>
   </form>
 </div>
 </div>
