@@ -12,23 +12,28 @@
                     <th class="th_binhluan">IDUSER</th>
                     <th class="th_binhluan">IDPRO</th>
                     <th class="th_binhluan">NGÀY BÌNH LUẬN</th>
-                    <th class="th_binhluan"></th>
+                    <th class="th_binhluan" ></th>
                 </tr>
                 <tr>
                     <?php
-                    echo '<tr>
+                    foreach ($listbinhluan as $binhluan) {
+                        extract($binhluan);
+                        $editbl = "index.php?act=editbl_load&id=" . $id;
+                        $deletebl = "index.php?act=deletebl&id=" . $id;
+                        $date = date("d/m/Y", strtotime($binhluan['ngaybinhluan']));
+                        echo '<tr>
                         <td class="td_binhluan" style="text-align: center;"><input type="checkbox" name="" id=""></td>
-                        <td class="td_binhluan" style="text-align: center;"></td>
-                        <td class="td_binhluan"></td>
-                        <td class="td_binhluan" style="text-align: center;"></td>
-                        <td class="td_binhluan" style="text-align: center;"></td>
-                        <td class="td_binhluan" style="text-align: center;"></td>
+                        <td class="td_binhluan" style="text-align: center;">' . $id . '</td>
+                        <td class="td_binhluan">' . $noidung . '</td>
+                        <td class="td_binhluan" style="text-align: center;">' . $iduser . '</td>
+                        <td class="td_binhluan" style="text-align: center;">' . $idpro . '</td>
+                        <td class="td_binhluan" style="text-align: center;">' . $date . '</td>
                         <td class="td_binhluan" style="text-align: center;">
                      
-                        <input style="padding: 5px 10px; background-color: red; color: #fff;" type="button" onclick="return confirm(\'ban co muon xoa khong\')" value="Xóa"></a>
+                        <a href="' . $deletebl . '"><input style="padding: 5px 10px; background-color: red; color: #fff;" type="button" onclick="return confirm(\'ban co muon xoa khong\')" value="Xóa"></a>
                         </td>
                     </tr>';
-
+                    }
                     ?>
 
 

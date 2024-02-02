@@ -22,6 +22,37 @@
             </div>
         </div>
 
+        <div class="mb">
+        <div class="box_title">BÌNH LUẬN</div>
+            <?php
+            if (isset($_SESSION['user'])) {
+            ?>
+  <div class="box_content2  product_portfolio binhluan ">
+                <table>
+                    <?php foreach ($binhluan as $value) : ?>
+                        <tr>
+                            <td><?php echo $value['noidung'] ?></td>
+                            <td><?php echo $value['user'] ?></td>
+                            <td><?php echo date("d/m/Y", strtotime($value['ngaybinhluan'])) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+            <div class="box_search">
+                <form action="index.php?act=sanphamct&idsp=<?= $id ?>" method="POST">
+                    <input type="hidden" name="idpro" value="<?= $id ?>">
+                    <input type="text" name="noidung">
+                    <input type="submit" name="guibinhluan" value="Gửi bình luận">
+                </form>
+            </div>
+            <?php } else { ?>
+                <div style="margin-top: 15px;">
+                <a href="" style="color: red; text-decoration: none; font-size: 13px;">Cần dăng nhập để bình luận</a>
+                </div>
+           <?php } ?>
+          
+
+        </div>
 
         <div class=" mb">
             <div class="box_title">SẢN PHẨM CÙNG LOẠI</div>
@@ -29,7 +60,7 @@
                 <?php foreach ($sanphamcl as $value) : ?>
                     <li>
                         <a href="index.php?act=sanphamct&idsp=<?= $value['id'] ?>">
-                            <img src="upload/<?= $value['img'] ?>" alt="">
+                            <?= $value['img'] ?>
                         </a>
                     </li>
                 <?php endforeach; ?>

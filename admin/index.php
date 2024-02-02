@@ -131,28 +131,41 @@
                 include "tk_khachhang/edittk.php";
                 break;
             case "binhluan":
-               
+                $listbinhluan = loadall_binhluanadmin();
                 include "show_binhluan/show_binhluan.php";
                 break;
             case 'deletebl':
-               
+                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    $sql = "DELETE FROM binhluan WHERE id=" . $_GET['id'];
+                    pdo_execute($sql);
+                    header('location: index.php?act=binhluan');
+                }
                 include "show_binhluan/show_binhluan.php";
                 break;
             case "editbl":
 
-                
+                if(isset($_POST['editbl']) && ($_POST['editbl'])){
+                    $noidung = $_POST['noidung'];
+                    $id = $_POST['id'];
+                    
+                    updatebl($id, $noidung);
+                    header("location: index.php?act=binhluan");
+                }
                 include "show_binhluan/editbl.php";
                 break;
             case "editbl_load":
-               
+                if(isset($_GET['idbl']) && ($_GET['idbl'] > 0)){
+                    $binhluan = loadone_binhluan($_GET['idbl']);
+                }
+                // echo $binhluan;
                 include "show_binhluan/editbl.php";
                 break;
             case "thongke":
-                    
+                    $listthongke = loadall_thongke();
                     include "thongke/thongke.php";
                     break;  
             case "bieudo":  
-                
+                $listthongke = loadall_thongke();
                 include "thongke/bieudo.php";
                 break;
             case "home":

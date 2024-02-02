@@ -58,7 +58,27 @@
             </div>
         <?php } ?>
     </div>
+    <div class="mb">
+        <div class="box_title" style="font-size: 15px;
+    margin-bottom: 10px;">DANH MỤC</div>
+        <div class="box_content2 product_portfolio">
+            <ul>
+                <?php
+                foreach ($dsdm as $dm) {
+                    extract($dm);
+                    $linkdm = "index.php?act=sanpham&iddm=" . $id;
+                    echo '<li><a href="' . $linkdm . '">' . $name . ' </a></li>';
+                }
+                ?>
+            </ul>
+        </div>
+        <div class="box_search">
+            <form action="index.php?act=sanpham" method="POST">
+                <input type="text" id="" placeholder="Tìm kiếm" name="keyword">
 
+            </form>
+        </div>
+    </div>
     <!-- DANH MỤC SẢN PHẨM BÁN CHẠY -->
     <div class="mb">
         <div class="box_title">SẢN PHẨM BÁN CHẠY</div>

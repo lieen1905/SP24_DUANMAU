@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="input-submit">
-          <input type="submit" value="Gửo" name="guiemail">
+          <input type="submit" value="Gửi" name="guiemail">
           <input type="reset" value="Nhập lại">
         </div>
         <?php if (isset($sendMailMess) && $sendMailMess != '') {

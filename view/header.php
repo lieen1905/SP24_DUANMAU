@@ -32,14 +32,13 @@
                <li class="dropdown">
                   <a class="dropdownbtn" href="index.php?act=sanpham">Sản Phẩm</a>
                   <div class="dropdown_content">
-                     <a href="">Đồng hồ</a>
                      <a href="">Điện thoại</a>
                      <a href="">Laptop</a>
                   </div>
                </li>
 
                <li class="dropdown">
-                  <a class="dropdownbtn" href="index.php?act=binhluan">Bình luận</a>
+                  <a class="dropdownbtn" href="">Liên hệ</a>
                </li>
 
             </ul>
